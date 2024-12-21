@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 import pickle
-import os  # Ensure os module is imported
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
@@ -41,12 +40,10 @@ def load_models():
     
     return sentence_transformer, kmeans, topic_labels
 
-
-
 # Sentiment analysis pipeline with three classes
 sentiment_analyzer = pipeline(
     "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english",
+    model="bhadresh-savani/bert-base-uncased-emotion",
 )
 
 # Function to extract human messages from JSON structure
