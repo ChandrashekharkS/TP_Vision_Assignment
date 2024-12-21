@@ -4,8 +4,7 @@ sentence_transformers
 transformers
 datasets
 torch
-pickle
-json
-streamlit
-ast
+
+
+
 
