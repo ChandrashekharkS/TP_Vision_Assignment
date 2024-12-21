@@ -1,6 +1,11 @@
 pandas
 scikit-learn
-sentence-transformers
+sentence_transformers
 transformers
 datasets
 torch
+pickle
+json
+streamlit
+ast
+
