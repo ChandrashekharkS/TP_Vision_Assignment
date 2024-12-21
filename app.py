@@ -74,7 +74,7 @@ def process_data(file):
     df['human_messages'] = df['human_messages'].apply(lambda x: truncate_message(x, 512))
 
     # Generate embeddings for clustering
-    embeddings = sentence_transformer.encode(df['human_messages'].tolist())
+    embeddings = SentenceTransformer.encode(df['human_messages'].tolist())
 
     # Predict topics
     df['topic'] = kmeans.predict(embeddings)
