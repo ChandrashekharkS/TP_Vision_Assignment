@@ -30,15 +30,15 @@ def load_models():
     with open('sentence_transformer.pkl', 'rb') as f:
         sentence_transformer = pickle.load(f)
 
-    # Load kmeans model
-    with open('topic_model.pkl', 'rb') as f:
-        kmeans = pickle.load(f)
+# Load kmeans model
+with open('topic_model.pkl', 'rb') as f:
+    kmeans = pickle.load(f)
 
     # Load topic labels
-    with open('topic_labels.pkl', 'rb') as f:
-        topic_labels = pickle.load(f)
+with open('topic_labels.pkl', 'rb') as f:
+    topic_labels = pickle.load(f)
     
-    return sentence_transformer, kmeans, topic_labels
+    
 
 # Sentiment analysis pipeline with three classes
 sentiment_analyzer = pipeline(
