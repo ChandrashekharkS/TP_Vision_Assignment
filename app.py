@@ -23,11 +23,27 @@ except ImportError:
     import subprocess
     subprocess.run(["pip", "install", "gdown"])
 
-with open('topic_labels.pkl', 'rb') as f:
-    topic_labels = pickle.load(f)
+# Load models and topic labels
+def load_models():
+    # Download the sentence transformer if not available
+    download_model_from_drive()
+    
+    # Load SentenceTransformer model
+    with open('sentence_transformer.pkl', 'rb') as f:
+        sentence_transformer = pickle.load(f)
 
-with open('topic_model.pkl', 'rb') as f:
-    topic_labels = pickle.load(f)
+    # Load kmeans model
+    with open('topic_model.pkl', 'rb') as f:
+        kmeans = pickle.load(f)
+
+    # Load topic labels
+    with open('topic_labels.pkl', 'rb') as f:
+        topic_labels = pickle.load(f)
+    
+    return sentence_transformer, kmeans, topic_labels
+
+# Load pre-trained models
+sentence_transformer, kmeans, topic_labels = load_models()
 
 
 # Sentiment analysis pipeline with three classes
