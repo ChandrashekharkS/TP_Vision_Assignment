@@ -26,8 +26,9 @@ except ImportError:
 with open('topic_labels.pkl', 'rb') as f:
     topic_labels = pickle.load(f)
 
-with open('sentence_transformer.pkl', 'rb') as f:
-    sentence_transformer = pickle.load(f)
+with open('topic_model.pkl', 'rb') as f:
+    topic_labels = pickle.load(f)
+
 
 # Sentiment analysis pipeline with three classes
 sentiment_analyzer = pipeline(
