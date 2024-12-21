@@ -14,7 +14,7 @@ except ImportError:
 
 # Download the sentence_transformer.pkl file from Google Drive
 def download_model_from_drive():
-    url = "https://drive.google.com/uc?id=19scNo_56kfUKhIQK9ImngOfSSIgr2Yfr"  # Replace with your Google Drive file ID
+    url = "https://drive.google.com/file/d/19scNo_56kfUKhIQK9ImngOfSSIgr2Yfr/view?usp=sharing"  # Replace with your Google Drive file ID
     output = "sentence_transformer.pkl"
 
     if not os.path.exists(output):
