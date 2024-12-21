@@ -2,26 +2,25 @@ import streamlit as st
 import pandas as pd
 import json
 import pickle
+import os  # Ensure os module is imported
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
-# Load pre-trained models
-# Download the sentence_transformer.pkl file from Google Drive
-def download_model_from_drive():
-    url = "https://drive.google.com/file/d/19scNo_56kfUKhIQK9ImngOfSSIgr2Yfr/view?usp=drive_link"  # Replace with your file ID
-    output = "sentence_transformer.pkl"
-
-    # Check if the file already exists to avoid re-downloading
-    if not os.path.exists(output):
-        st.info("Downloading sentence transformer model from Google Drive...")
-        gdown.download(url, output, quiet=False)
-
-# Ensure gdown is installed
+# Ensure gdown is installed for downloading files
 try:
     import gdown
 except ImportError:
     import subprocess
     subprocess.run(["pip", "install", "gdown"])
+
+# Download the sentence_transformer.pkl file from Google Drive
+def download_model_from_drive():
+    url = "https://drive.google.com/uc?id=19scNo_56kfUKhIQK9ImngOfSSIgr2Yfr"  # Replace with your Google Drive file ID
+    output = "sentence_transformer.pkl"
+
+    if not os.path.exists(output):
+        st.info("Downloading sentence transformer model from Google Drive...")
+        gdown.download(url, output, quiet=False)
 
 # Load models and topic labels
 def load_models():
@@ -42,8 +41,6 @@ def load_models():
     
     return sentence_transformer, kmeans, topic_labels
 
-# Load pre-trained models
-sentence_transformer, kmeans, topic_labels = load_models()
 
 
 # Sentiment analysis pipeline with three classes
