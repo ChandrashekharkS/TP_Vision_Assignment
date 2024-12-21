@@ -21,14 +21,8 @@ def download_model_from_drive():
         st.info("Downloading sentence transformer model from Google Drive...")
         gdown.download(url, output, quiet=False)
 
-# Load models and topic labels
-def load_models():
-    # Download the sentence transformer if not available
-    download_model_from_drive()
-    
-    # Load SentenceTransformer model
-    with open('sentence_transformer.pkl', 'rb') as f:
-        sentence_transformer = pickle.load(f)
+with open('sentence_transformer.pkl', 'rb') as f:
+    sentence_transformer = pickle.load(f)
 
 # Load kmeans model
 with open('topic_model.pkl', 'rb') as f:
